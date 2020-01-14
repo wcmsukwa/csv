@@ -9,11 +9,12 @@ namespace csv.Tests
     [TestClass()]
     public class readcsvTests
     {
-        [TestMethod()]
-        public void MainTest()
+
+       [TestMethod()]
+        public void ReadInCSVTest()
         {
-            readcsv.Main();
-            Assert.Fail();
+            var path = "c://csvfiles//worldcities.csv";
+            Assert.AreEqual(15493, csv.readcsv.ReadInCSV(path).Count);
         }
     }
 }

@@ -8,12 +8,6 @@ namespace csv
 {
     public class readcsv
     {
-        public static void Main()
-        {
-            var path = "c://csvfiles//worldcities.csv";
-            var recordList = ReadInCSV(path);
-        }
-
         public static List<City> ReadInCSV(string absolutePath)
         {
             List<City> result = new List<City>();
