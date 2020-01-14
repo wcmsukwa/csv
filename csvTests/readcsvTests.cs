@@ -10,10 +10,19 @@ namespace csv.Tests
     public class readcsvTests
     {
         [TestMethod()]
-        public void MainTest()
+        public void ReadAllRecordsInCSVTest()
         {
-            readcsv.Main();
-            Assert.Fail();
+            var absolutePath = "c://csvfiles//worldcities.csv";
+            List<City> result = readcsv.ReadAllRecordsInCSV(absolutePath);
+            Assert.AreEqual(15493, result.Count);
+        }
+
+        [TestMethod()]
+        public void ReadOneRecordInCSVTest()
+        {
+            var absolutePath = "c://csvfiles//worldcities.csv";
+            List<City> result = readcsv.ReadOneRecordInCSV(absolutePath);
+            Assert.AreEqual(15493, result.Count);
         }
     }
 }
