@@ -1,4 +1,6 @@
 ﻿using CsvHelper;
+using System.Collections;
+using System.Linq;
 using CsvHelper.Configuration;
 using CsvHelper.TypeConversion;
 using System.Collections.Generic;
@@ -11,7 +13,14 @@ namespace csv
         public static void Main()
         {
             var path = "c://csvfiles//worldcities.csv";
-            var recordList = ReadInCSV(path);
+            var cities = ReadInCSV(path);
+
+            IEnumerable<City> countryQuery = cities.Where(city => city.Country.Equals("United States"));
+
+
+            foreach (City city in countryQuery) {
+                var name = city.City_name.ToString();                 
+            }
         }
 
         public static List<City> ReadInCSV(string absolutePath)
@@ -37,7 +46,9 @@ namespace csv
     }
 
     public class City
+
     {
+     
         public string City_name { get; set; }
         public string City_ascii { get; set; }
         public double Lat { get; set; }
@@ -49,13 +60,13 @@ namespace csv
         public string Capital { get; set; }
         public double Population { get; set; }
         public float Id { get; set; }
+    
     }
 
     public sealed class CityMap : ClassMap<City>
     {
         public CityMap()
         {
-            AutoMap();
             Map(m => m.City_name).Name("city");
             Map(m => m.City_ascii).Name("city_ascii");
             Map(m => m.Admin_name).Name("admin_name");
