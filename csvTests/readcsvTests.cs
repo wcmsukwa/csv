@@ -12,17 +12,7 @@ namespace csv.Tests
         [TestMethod()]
         public void MainTest()
         {
-            csv.readcsv.Main();
-            Assert.Fail();
-        }
-    }
-
-    public class ReadcsvTests
-    {
-        [TestMethod()]
-        public void ReadCSVTest()
-        {
-            csv.readcsv.Main();
+            readcsv.Main();
             Assert.Fail();
         }
     }
