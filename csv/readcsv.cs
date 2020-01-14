@@ -38,17 +38,17 @@ namespace csv
 
     public class City
     {
-        public string city { get; set; }
-        public string city_ascii { get; set; }
-        public double lat { get; set; }
-        public double lng { get; set; }
-        public string country { get; set; }
-        public string iso2 { get; set; }
-        public string iso3 { get; set; }
-        public string admin_name { get; set; }
-        public string capital { get; set; }
-        public double population { get; set; }
-        public float id { get; set; }
+        public string City_name { get; set; }
+        public string City_ascii { get; set; }
+        public double Lat { get; set; }
+        public double Lng { get; set; }
+        public string Country { get; set; }
+        public string ISO2 { get; set; }
+        public string ISO3 { get; set; }
+        public string Admin_name { get; set; }
+        public string Capital { get; set; }
+        public double Population { get; set; }
+        public float Id { get; set; }
     }
 
     public sealed class CityMap : ClassMap<City>
@@ -56,6 +56,17 @@ namespace csv
         public CityMap()
         {
             AutoMap();
+            Map(m => m.City_name).Name("city");
+            Map(m => m.City_ascii).Name("city_ascii");
+            Map(m => m.Admin_name).Name("admin_name");
+            Map(m => m.Capital).Name("capital");
+            Map(m => m.Country).Name("country");
+            Map(m => m.Id).Name("id");
+            Map(m => m.ISO2).Name("iso2");
+            Map(m => m.ISO3).Name("iso3");
+            Map(m => m.Lat).Name("lat");
+            Map(m => m.Lng).Name("lng");
+            Map(m => m.Population).Name("population");
         }
     }
     public class EmptyDouble : DoubleConverter
