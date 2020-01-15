@@ -8,13 +8,9 @@ namespace csv
 {
     public class readcsv
     {
-        public static void Main()
-        {
-            var path = "c://csvfiles//worldcities.csv";
-            var recordList = ReadInCSV(path);
-        }
+   
 
-        public static List<City> ReadInCSV(string absolutePath)
+        public static List<City> ReadAllRecordsInCSV(string absolutePath)
         {
             List<City> result = new List<City>();
             using (var reader = new StreamReader(absolutePath))
@@ -34,6 +30,27 @@ namespace csv
                 return result;
             }
         }
+
+        public static List<City> ReadOneRecordInCSV(string absolutePath)
+        {
+            List<City> result = new List<City>();
+            using (var reader = new StreamReader(absolutePath))
+            {
+                using (var csv = new CsvReader(reader))
+                {
+                    csv.Configuration.HasHeaderRecord = true;
+                    csv.Configuration.TypeConverterCache.AddConverter(typeof(double), new EmptyDouble());
+                    csv.Configuration.RegisterClassMap<CityMap>();
+
+                    csv.Read();
+                    result.Add(csv.GetRecord<City>());
+
+                }
+                return result;
+            }
+        }
+
+       
     }
 
     public class City
