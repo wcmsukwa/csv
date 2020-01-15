@@ -23,6 +23,7 @@ namespace csv.Tests
                            where s.Capital.Equals("primary")
                            orderby s.Country ascending
                            select s;
+            // Hello
             foreach (CityModel city in countryCapitalQuery)
             {
                 Debug.Write(city.Country + ": " + city.City_name + Environment.NewLine);
