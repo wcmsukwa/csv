@@ -1,8 +1,7 @@
-﻿using System;
-
-namespace Cities
+﻿namespace Cities
 {
-    public class City
+    public class CityModel
+
     {
         public string City_name { get; set; }
         public string City_ascii { get; set; }
@@ -15,5 +14,6 @@ namespace Cities
         public string Capital { get; set; }
         public double Population { get; set; }
         public float Id { get; set; }
+        //public CityModel() { }
     }
 }
