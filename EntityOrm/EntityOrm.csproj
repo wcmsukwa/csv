@@ -5,8 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\csv\Csv.csproj" />
-    <ProjectReference Include="..\EntityOrm\EntityOrm.csproj" />
+    <PackageReference Include="EntityFramework" Version="6.4.0" />
   </ItemGroup>
 
 </Project>
