@@ -1,4 +1,6 @@
 ﻿using Cities;
+using Context;
+using Entity;
 using Csv;
 using CsvHelper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -41,7 +43,7 @@ namespace csv.Tests
 
             //Debug.Write(QSCount);
 
-            Assert.AreEqual(15493, myList.Count());
+            Assert.AreEqual(15493, myList.Count);
 
             using (var dbContext = new CitiesContext())
             {
